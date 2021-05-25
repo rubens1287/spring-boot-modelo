@@ -6,7 +6,7 @@ import br.com.etec.demo.repository.TopicoRepository;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
-public class AtualizatTopicoForm {
+public class AtualizarTopicoForm {
 
     @NotNull
     @NotEmpty

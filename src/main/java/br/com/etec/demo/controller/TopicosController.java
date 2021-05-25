@@ -2,7 +2,7 @@ package br.com.etec.demo.controller;
 
 import br.com.etec.demo.controller.dto.DetalhesDoTopicoDto;
 import br.com.etec.demo.controller.dto.TopicoDto;
-import br.com.etec.demo.controller.form.AtualizatTopicoForm;
+import br.com.etec.demo.controller.form.AtualizarTopicoForm;
 import br.com.etec.demo.controller.form.TopicoForm;
 import br.com.etec.demo.models.Topico;
 import br.com.etec.demo.repository.CursoRepository;
@@ -59,7 +59,7 @@ public class TopicosController {
 
     @PutMapping("/{id}")
     @Transactional
-    public ResponseEntity<TopicoDto> atualizar(@PathVariable("id") Long id, @RequestBody @Valid AtualizatTopicoForm form, UriComponentsBuilder uriBuilder){
+    public ResponseEntity<TopicoDto> atualizar(@PathVariable("id") Long id, @RequestBody @Valid AtualizarTopicoForm form, UriComponentsBuilder uriBuilder){
         Optional<Topico> topico = topicoRepository.findById(id);
         if(topico.isPresent()){
             return  ResponseEntity.ok(new TopicoDto(form.atualizar(id,topicoRepository)));

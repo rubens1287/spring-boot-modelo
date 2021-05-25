@@ -13,7 +13,17 @@ public class Curso {
 	private Long id;
 	private String nome;
 	private String categoria;
-	
+
+	public Curso(Long id, String nome, String categoria) {
+		this.id = id;
+		this.nome = nome;
+		this.categoria = categoria;
+	}
+
+	public Curso(){
+
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
