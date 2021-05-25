@@ -1,32 +1,21 @@
 package br.com.etec.demo.controller.form;
 
-import br.com.etec.demo.models.Curso;
 import br.com.etec.demo.models.Topico;
 import br.com.etec.demo.models.Usuario;
-import br.com.etec.demo.repository.CursoRepository;
 import br.com.etec.demo.repository.TopicoRepository;
 import br.com.etec.demo.repository.UsuarioRepository;
 
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
-public class UsuarioForm {
+public class AtualizarUsuarioForm {
 
-    private Long id;
     @NotNull @NotEmpty
     private String nome;
     @NotNull @NotEmpty
     private String email;
     @NotNull @NotEmpty
     private String senha;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getNome() {
         return nome;
@@ -52,8 +41,11 @@ public class UsuarioForm {
         this.senha = senha;
     }
 
-    public Usuario coverter() {
-        return new Usuario(id,nome,email,senha);
+    public Usuario atualizar(Long id, UsuarioRepository usuarioRepository) {
+        Usuario usuario = usuarioRepository.getOne(id);
+        usuario.setNome(this.nome);
+        usuario.setEmail(this.email);
+        usuario.setSenha(this.senha);
+        return usuario;
     }
-
 }

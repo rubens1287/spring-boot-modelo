@@ -7,5 +7,4 @@ import java.util.Optional;
 
 public interface TopicoRepository extends JpaRepository<Topico, Long> {
 
-
 }

@@ -55,15 +55,4 @@ public class CursoController {
         }
         return  ResponseEntity.notFound().build();
     }
-
-    @DeleteMapping("/{id}")
-    @Transactional
-    public ResponseEntity<CursoDto> deletar(@PathVariable("id") Long id){
-        Optional<Curso> curso = cursoRepository.findById(id);
-        if(curso.isPresent()){
-            cursoRepository.deleteById(id);
-            return  ResponseEntity.ok().build();
-        }
-        return  ResponseEntity.notFound().build();
-    }
 }
