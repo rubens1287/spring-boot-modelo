@@ -69,7 +69,7 @@ public class TopicosController {
 
     @DeleteMapping("/{id}")
     @Transactional
-    public ResponseEntity<TopicoDto> atualizar(@PathVariable("id") Long id){
+    public ResponseEntity<TopicoDto> deletar(@PathVariable("id") Long id){
         Optional<Topico> topico = topicoRepository.findById(id);
         if(topico.isPresent()){
             topicoRepository.deleteById(id);
